@@ -40,6 +40,12 @@ class UninstallModuleServiceProvider extends ServiceProvider
 
     protected function dropSchema()
     {
-        //\Schema::dropIfExists('table-name');
+        \Schema::dropIfExists('amenities_host');
+        \Schema::dropIfExists('processes');
+        \Schema::dropIfExists('locations_arounds');
+        \Schema::dropIfExists('host_photos');
+        \Schema::dropIfExists('place_host');
+        \Schema::dropIfExists('host_settings');
+        \Schema::dropIfExists('hosts');
     }
 }
