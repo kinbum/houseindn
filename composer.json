@@ -1,0 +1,80 @@
+{
+    "name": "sgsoft-studio/webed",
+    "description": "The CMS based on Laravel Framework 5.4",
+    "authors": [
+        {
+            "name": "Tedozi Manson",
+            "email": "duyphan.developer@gmail.com"
+        }
+    ],
+    "keywords": [
+        "framework",
+        "laravel",
+        "webed",
+        "laravel webed",
+        "laravel website editor",
+        "laravel cms"
+    ],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": ">=5.6.4",
+        "laravel/framework": "5.4.*",
+        "laravel/tinker": "~1.0",
+        "sgsoft-studio/base": "3.1.*"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "~1.4",
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "~5.0"
+    },
+    "autoload": {
+        "classmap": [
+            "database"
+        ],
+        "psr-4": {
+            "App\\": "app/",
+            "Tests\\": "tests/",
+            "WebEd\\Base\\ACL\\": "core/acl/src",
+            "WebEd\\Base\\": "core/base/src",
+            "WebEd\\Base\\ModulesManagement\\": "core/modules-management/src",
+            "WebEd\\Base\\Elfinder\\": "core/elfinder/src",
+            "WebEd\\Base\\Settings\\": "core/settings/src",
+            "WebEd\\Base\\Hook\\": "core/hook/src",
+            "WebEd\\Base\\Users\\": "core/users/src",
+            "WebEd\\Base\\Caching\\": "core/caching/src",
+            "WebEd\\Base\\ThemesManagement\\": "core/themes-management/src",
+            "WebEd\\Base\\CustomFields\\": "core/custom-fields/src",
+            "WebEd\\Base\\AssetsManagement\\": "core/assets-management/src",
+            "WebEd\\Base\\Menu\\": "core/menu/src",
+            "WebEd\\Base\\StaticBlocks\\": "core/static-blocks/src",
+            "WebEd\\Base\\Pages\\": "core/pages/src",
+            "WebEd\\Base\\Shortcode\\": "core/shortcode/src",
+            "WebEd\\Plugins\\IDE\\": "plugins/ide/src",
+            "WebEd\\Plugins\\Backup\\": "plugins/backup/src",
+            "WebEd\\Themes\\Triangle\\": "themes/triangle/src",
+            "WebEd\\Plugins\\Blog\\": "plugins/blog/src",
+            "WebEd\\Plugins\\Features\\": "plugins/features/src"
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ],
+        "post-install-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "php artisan optimize"
+        ],
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "php artisan optimize"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}

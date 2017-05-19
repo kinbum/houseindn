@@ -1,0 +1,10 @@
+{
+    "alias": "hosts",
+    "name": "WebEd hosts",
+    "author": "Kin",
+    "description": "WebEd hosts",
+    "namespace": "WebEd\\Plugins\\Hosts",
+    "version": "1.0",
+    "autoload": "psr-4",
+    "require": {}
+}

@@ -1,0 +1,10 @@
+{
+    "alias": "features",
+    "name": "houseindanang features",
+    "author": "Kin",
+    "description": "Houseindanang features",
+    "namespace": "WebEd\\Plugins\\Features",
+    "version": "1.0",
+    "autoload": "psr-4",
+    "require": {}
+}
