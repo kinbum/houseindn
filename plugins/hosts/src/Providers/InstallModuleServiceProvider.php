@@ -54,13 +54,13 @@ class InstallModuleServiceProvider extends ServiceProvider
             $table->text('description')->nullable()->default(null);
             $table->text('content')->nullable()->default(null);
 
-            $table->integer('kind_id')->unsigned();
+            $table->integer('kind_id')->unsigned()->nullable();
             $table->foreign('kind_id')
                 ->references('id')
                 ->on('kinds')
                 ->onDelete('set null');
 
-            $table->integer('created_by')->unsigned();
+            $table->integer('created_by')->unsigned()->nullable();
             $table->foreign('created_by')
                 ->references('id')
                 ->on('users')
@@ -88,7 +88,8 @@ class InstallModuleServiceProvider extends ServiceProvider
         // Host setting generate
         Schema::create('host_settings', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('host_id')->unsigned();
+
+            $table->integer('host_id')->unsigned()->nullable();
             $table->foreign('host_id')
                 ->references('id')
                 ->on('hosts')
@@ -107,7 +108,7 @@ class InstallModuleServiceProvider extends ServiceProvider
             $table->engine = 'InnoDB';
             $table->increments('id');
             
-            $table->integer('host_id')->unsigned();
+            $table->integer('host_id')->unsigned()->nullable();
 
             $table->foreign('host_id')
                 ->references('id')
@@ -130,10 +131,11 @@ class InstallModuleServiceProvider extends ServiceProvider
         Schema::create('host_photos', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('host_id')->unsigned();
+            $table->integer('host_id')->unsigned()->nullable();
+
             $table->foreign('host_id')
                 ->references('id')
-                ->on('host')
+                ->on('hosts')
                 ->onDelete('set null');
             
             $table->string('name')->nullable()->default(null);
@@ -145,10 +147,10 @@ class InstallModuleServiceProvider extends ServiceProvider
         Schema::create('locations_arounds', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('host_id')->unsigned();
+            $table->integer('host_id')->unsigned()->nullable();
             $table->foreign('host_id')
                 ->references('id')
-                ->on('host')
+                ->on('hosts')
                 ->onDelete('set null');
             
             $table->string('location_name');
@@ -169,13 +171,13 @@ class InstallModuleServiceProvider extends ServiceProvider
         Schema::create('processes', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('host_id')->unsigned();
+            $table->integer('host_id')->unsigned()->nullable();
             $table->foreign('host_id')
                 ->references('id')
-                ->on('host')
+                ->on('hosts')
                 ->onDelete('set null');
 
-            $table->integer('created_by')->unsigned();
+            $table->integer('created_by')->unsigned()->nullable();
             $table->foreign('created_by')
                 ->references('id')
                 ->on('users')
@@ -194,13 +196,13 @@ class InstallModuleServiceProvider extends ServiceProvider
             $table->foreign('amenities_id')
                 ->references('id')
                 ->on('amenities')
-                ->onDelete('set null');
+                ->onDelete('cascade');
 
             $table->integer('host_id')->unsigned();
             $table->foreign('host_id')
                 ->references('id')
-                ->on('host')
-                ->onDelete('set null');
+                ->on('hosts')
+                ->onDelete('cascade');
         });
     }
 }

@@ -21,17 +21,17 @@ class BootstrapModuleMiddleware
         /**
          * Register to dashboard menu
          */
-        /*dashboard_menu()->registerItem([
+        dashboard_menu()->registerItem([
             'id' => 'hosts',
-            'priority' => 20,
+            'priority' => 3,
             'parent_id' => null,
-            'heading' => null,
-            'title' => 'WebEd hosts',
+            'heading' => trans('hosts::base.hosts'),
+            'title' => trans('hosts::base.hosts'),
             'font_icon' => 'icon-puzzle',
             'link' => '',
             'css_class' => null,
             'permissions' => [],
-        ]);*/
+        ]);
 
         return $next($request);
     }

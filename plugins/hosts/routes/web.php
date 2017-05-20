@@ -11,9 +11,7 @@ $adminRoute = config('webed.admin_route');
 $moduleRoute = 'hosts';
 
 Route::group(['prefix' => $adminRoute . '/' . $moduleRoute], function (Router $router) use ($adminRoute, $moduleRoute) {
-    /**
-     *
-     * Put some route here
-     *
-     */
+    $router->get('/', 'HostController@getIndex')
+        ->name('hosts.index.get')
+        ->middleware('has-permission:view-host');
 });

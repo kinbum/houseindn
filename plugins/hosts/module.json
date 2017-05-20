@@ -1,8 +1,8 @@
 {
     "alias": "hosts",
-    "name": "WebEd hosts",
+    "name": "Houseindanang register hosts",
     "author": "Kin",
-    "description": "WebEd hosts",
+    "description": "Houseindanang register hosts",
     "namespace": "WebEd\\Plugins\\Hosts",
     "version": "1.0",
     "autoload": "psr-4",

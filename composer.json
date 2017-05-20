@@ -54,7 +54,8 @@
             "WebEd\\Plugins\\Backup\\": "plugins/backup/src",
             "WebEd\\Themes\\Triangle\\": "themes/triangle/src",
             "WebEd\\Plugins\\Blog\\": "plugins/blog/src",
-            "WebEd\\Plugins\\Features\\": "plugins/features/src"
+            "WebEd\\Plugins\\Features\\": "plugins/features/src",
+            "WebEd\\Plugins\\Hosts\\": "plugins/hosts/src"
         }
     },
     "scripts": {

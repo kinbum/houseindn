@@ -24,7 +24,7 @@ class BootstrapModuleMiddleware
          */
         dashboard_menu()->registerItem([
             'id' => 'webed-acl-roles',
-            'priority' => 4.1,
+            'priority' => 5.1,
             'parent_id' => null,
             'heading' => null,
             'title' => trans('webed-acl::base.roles'),
@@ -34,7 +34,7 @@ class BootstrapModuleMiddleware
             'permissions' => ['view-roles'],
         ])->registerItem([
             'id' => 'webed-acl-permissions',
-            'priority' => 4.2,
+            'priority' => 5.2,
             'parent_id' => null,
             'heading' => null,
             'title' => trans('webed-acl::base.permissions'),

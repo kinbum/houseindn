@@ -24,7 +24,7 @@ class BootstrapModuleMiddleware
          */
         dashboard_menu()->registerItem([
             'id' => 'webed-users',
-            'priority' => 4,
+            'priority' => 5,
             'parent_id' => null,
             'heading' => trans('webed-users::base.admin_menu.heading'),
             'title' => trans('webed-users::base.admin_menu.title'),
